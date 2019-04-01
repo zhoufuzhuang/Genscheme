@@ -1,7 +1,8 @@
 # Genscheme
 1.安装依赖库
-  pip install genson
-  pip install requests
+    
+    pip install genson;
+    pip install requests;
 
 2.填写接口信息:
   
@@ -18,4 +19,5 @@
     NAME = "xxx.json"
  
  3.运行方法
-  python Genscheme.py
+  
+    python Genscheme.py
