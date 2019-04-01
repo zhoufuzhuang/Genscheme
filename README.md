@@ -1,5 +1,5 @@
 # Genscheme
-1.安装依赖库
+1.安装依赖库:
     
     pip install genson;
     pip install requests;
@@ -18,6 +18,6 @@
     #生成json文件名字
     NAME = "xxx.json"
  
- 3.运行方法
+ 3.运行方法:
   
     python Genscheme.py
