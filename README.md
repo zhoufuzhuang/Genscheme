@@ -2,6 +2,7 @@
 1.安装依赖库
   pip install genson
   pip install requests
+
 2.填写接口信息
   #请求接口的host
   HOST = "http://xxx.xxx.xxx"
@@ -11,5 +12,6 @@
   METHOD = "GET"
   #生成json文件名字
   NAME = "xxx.json"
+ 
  3.运行方法
   python Genscheme.py
