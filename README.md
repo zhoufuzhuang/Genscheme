@@ -3,6 +3,7 @@
     
     pip install genson;
     pip install requests;
+    pip install json;
 
 2.填写接口信息:
   
