@@ -9,7 +9,7 @@ import yaml
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
 con = requests.session()
 
-HOST = "http://xxx.xxx.xxx"
+HOST = "http://xxx.xx.xx"
 
 
 def get_request_config():
@@ -28,7 +28,7 @@ def build_scheme(_response):
 
 def get_response(method, path, **kwargs):
     resp = con.request(method=method, url=HOST + path, **kwargs)
-    return json.loads(resp.text)
+    return resp
 
 
 def build_json_file(filename, scheme):
@@ -39,9 +39,12 @@ def build_json_file(filename, scheme):
 
 def run(method, path, name, **kwargs):
     response = get_response(method, path, **kwargs)
-    schema_text = build_scheme(response)
-    scheme = json.dumps(schema_text, indent=4)
-    build_json_file(name + ".json", scheme)
+    if response.status_code == 200:
+        schema_text = build_scheme(json.loads(response.text))
+        scheme = json.dumps(schema_text, indent=4)
+        build_json_file(name + ".json", scheme)
+    else:
+        print u"%s接口报错：%s\n" % (name, response.status_code)
 
 
 def main():
@@ -51,10 +54,13 @@ def main():
         method = r.get('method')
         name = r.get('name')
         body = r.get('body', {})
-        if method == "GET":
-            run(method, path, name)
-        elif method == "POST":
-            run(method, path, name, data=json.dumps(body))
+        try:
+            if method == "GET":
+                run(method, path, name)
+            elif method == "POST":
+                run(method, path, name, data=json.dumps(body))
+        except Exception as e:
+            print e
 
 
 if __name__ == "__main__":
