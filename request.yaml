@@ -1,0 +1,11 @@
+#请求接口1
+-
+    url : "/path?key1=value1&key2=value2"
+    method : "GET"
+    name: "生成文件名"
+
+#请求接口2
+-
+    url : "/path?key1=value1&key2=value2"
+    method : "GET"
+    name: "生成文件名"
