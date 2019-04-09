@@ -4,21 +4,23 @@
     pip install genson;
     pip install requests;
     pip install json;
+    pip install yaml
 
-2.填写接口信息:
+2.在request.yaml中填写接口信息:
   
-    #请求接口的host
-    HOST = "http://xxx.xxx.xxx"
-  
-    #请求接口的path和参数
-    PATH = "/path?key1=value1&key2=value2"
-  
-    #请求的方法
-    METHOD = "GET"
-  
-    #生成json文件名字
-    NAME = "xxx.json"
+    #请求接口1
+    -
+        url : "/path?key1=value1&key2=value2"
+        method : "GET"
+        name: "生成文件名"
+    
+    #请求接口2
+    -
+        url : "/path?key1=value1&key2=value2"
+        method : "GET"
+        name: "生成文件名"
+ 3.在Genscheme.py修改常量HOST
  
- 3.运行方法:
+ 4.运行方法:
   
     python Genscheme.py
