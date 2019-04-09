@@ -17,8 +17,11 @@
     #请求接口2
     -
         url : "/path?key1=value1&key2=value2"
-        method : "GET"
-        name: "生成文件名"
+        method : "POST"
+        name : "生成文件名"
+        body : 
+           name: "xxx"
+           password: "xxxx"
  3.在Genscheme.py修改常量HOST
  
  4.运行方法:
